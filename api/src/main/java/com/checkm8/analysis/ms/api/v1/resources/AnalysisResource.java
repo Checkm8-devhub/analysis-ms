@@ -59,6 +59,8 @@ public class AnalysisResource {
             return Response.status(Response.Status.BAD_REQUEST).entity("Request body required").build();
         if (req.gameId == null)
             return Response.status(Response.Status.BAD_REQUEST).entity("Missing game id").build();
+        if (req.moveTime != null)
+            this.moveTime = Integer.min(req.moveTime, 1000); // prevent DDOS
 
         try {
 
