@@ -10,6 +10,7 @@ import com.checkm8.analysis.ms.beans.AnalysisBean;
 import com.checkm8.analysis.ms.dtos.AnalysisResponsePv;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -28,6 +29,7 @@ import jakarta.ws.rs.core.UriInfo;
 @Path("analyses")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@RolesAllowed({"user", "admin"})
 public class AnalysisResource {
 
     @Context
