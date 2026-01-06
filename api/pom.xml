@@ -25,6 +25,12 @@
             <artifactId>quarkus-rest-jsonb</artifactId>
         </dependency>
 
+        <!-- OIDC -->
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-oidc</artifactId>
+        </dependency>
+
         <!-- HTTP client -->
         <dependency>
             <groupId>io.quarkus</groupId>
