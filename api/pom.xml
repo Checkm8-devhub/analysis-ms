@@ -49,6 +49,12 @@
             <artifactId>quarkus-swagger-ui</artifactId>
         </dependency>
 
+        <!-- Health -->
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-smallrye-health</artifactId>
+        </dependency>
+
         <!-- modules -->
         <dependency>
             <groupId>com.checkm8.analysis.ms</groupId>

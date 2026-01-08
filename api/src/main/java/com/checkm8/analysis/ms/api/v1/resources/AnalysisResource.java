@@ -36,9 +36,9 @@ public class AnalysisResource {
     private UriInfo uriInfo;
 
     private Client httpClient;
-    @ConfigProperty(name = "gameplay.games.ms.base-url", defaultValue = "http://localhost:8080")
+    @ConfigProperty(name = "gameplay.games.ms.base-url")
     private String baseUrl;
-    @ConfigProperty(name = "engine.stockfish.moveTime", defaultValue = "150")
+    @ConfigProperty(name = "engine.stockfish.moveTime")
     private Integer moveTime;
 
     @Inject
