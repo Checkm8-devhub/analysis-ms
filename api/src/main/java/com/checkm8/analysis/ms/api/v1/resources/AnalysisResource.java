@@ -3,6 +3,9 @@ package com.checkm8.analysis.ms.api.v1.resources;
 import java.util.List;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
 import com.checkm8.analysis.ms.api.v1.dtos.AnalysisRequest;
 import com.checkm8.analysis.ms.api.v1.dtos.GameplayGamesMsResponse;
@@ -55,6 +58,24 @@ public class AnalysisResource {
 
     // Expects game_token and actions in body
     @POST
+    @Operation(
+      summary = "Analyze a game",
+      description = "Fetches the game from Gameplay Games MS and returns Stockfish analysis for its UCI move list. moveTime is capped to 1000ms."
+    )
+    @APIResponses({
+      @APIResponse(
+        responseCode = "200",
+        description = "Analysis result: list (per move) of PV lines"
+      ),
+      @APIResponse(
+        responseCode = "400",
+        description = "Bad request (missing body/gameId)"
+      ),
+      @APIResponse(
+        responseCode = "500",
+        description = "Internal server error"
+      )
+    })
     public Response handleAction(AnalysisRequest req) {
 
         if (req == null)
