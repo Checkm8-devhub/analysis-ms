@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analysis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analysis
+  template:
+    metadata:
+      labels:
+        app: analysis
+    spec:
+      containers:
+        - name: analysis
+          image: checkm8-analysis:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analysis
+spec:
+  type: ClusterIP
+  selector:
+    app: analysis
+  ports:
+    - port: 8080
+      targetPort: 8080
